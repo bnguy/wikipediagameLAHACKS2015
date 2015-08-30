@@ -1,0 +1,36 @@
+{
+  "name": "The Wiki Game",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "The Wiki Game Chrome Extension",
+  "homepage_url": "https://github.com/richardmin97/LAHacks",
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://*.mashape.com https://en.wikipedia.org; object-src 'self'",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/iconmed.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon16.png",
+    "default_title": "The Wiki Game"
+  },
+
+  "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["src/content.js"],
+            "all_frames": true,
+            "run_at": "document_start"
+        }
+    ],
+
+  "permissions": [
+        "*://*/*"
+    ]
+
+}
+
